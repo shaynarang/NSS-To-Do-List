@@ -13,10 +13,18 @@ class TasksController < ApplicationController
     redirect_to :root
   end
 
-  def destroy(task)
-    @tasks = task
-    @task.destroy
+  def delete(task)
+    task.destroy
     flash[:notice] = "Your Task has been deleted."
+    redirect_to :root
+  end
+
+  def delete_all
+    @tasks = Task.all
+    @tasks.each do |task|
+      task.destroy
+    end
+    flash[:notice] = "Your Task has been deleted." unless !Task.all == nil
     redirect_to :root
   end
 end
