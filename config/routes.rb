@@ -1,4 +1,7 @@
 NSSToDoList::Application.routes.draw do
+  root to: "lists#index"
+  resources :lists, only: [:index, :new, :create]
+
   root to: "tasks#index"
   resources :tasks, only: [:index, :new, :create]
 
