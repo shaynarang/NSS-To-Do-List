@@ -3,7 +3,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
 require 'capybara/rails'
-# Capybara.default_driver = :selenium
+Capybara.default_driver = :selenium
 
 DatabaseCleaner.strategy = :truncation
 

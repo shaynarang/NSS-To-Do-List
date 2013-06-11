@@ -1,8 +1,12 @@
 NSSToDoList::Application.routes.draw do
   root to: "lists#index"
-  resources :lists, only: [:index, :new, :create]
 
-  resources :tasks, only: [:index, :new, :create]
+  resources :lists, only: [:index, :create, :destroy]
+  resources :tasks, only: [:create, :destroy]
+  
+  resources :lists do
+    resources :tasks
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

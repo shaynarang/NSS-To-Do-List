@@ -1,4 +1,4 @@
 class List < ActiveRecord::Base
   has_many :tasks, :dependent => :destroy
-  attr_accessible :title
+  attr_accessible :title, :id
 end
